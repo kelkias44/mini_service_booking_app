@@ -15,4 +15,11 @@ A Flutter-based application for managing service bookings with full CRUD functio
 git clone https://github.com/your-username/mini-service-booking.git
 ```
 2. Open the project on code editor
-
+3. Install dependencies
+```bash
+flutter pub get
+```
+4. Run the app
+```bash
+flutter run
+```
