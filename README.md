@@ -1,16 +1,35 @@
-# simple_service_management
+# Mini Service Booking App 🛠️
 
-A new Flutter project.
+A Flutter-based application for managing service bookings with full CRUD functionality, built following Clean Architecture principles and powered by GetX for state management.
 
-## Getting Started
+## Features ✨
+- **Service Management**: Create, Read, Update, Delete services
+- **Image Upload**: Camera/Gallery image capture with Cloudinary integration
+- **Search & Filters**: Find services by category, price range, or rating
+- **Responsive UI**: Clean and intuitive user interface
+- **Form Validation**: Real-time input validation with error handling
 
-This project is a starting point for a Flutter application.
+## Setup 🚀
+1. Clone repository
+```bash
+git clone https://github.com/your-username/mini-service-booking.git
+```
+2. Open the project on code editor
+3. Install dependencies
+```bash
+flutter pub get
+```
+4. Run the app
+```bash
+flutter run
+```
 
-A few resources to get you started if this is your first Flutter project:
+## App Preview 📱
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Services List
+<img src="screenshots/add_service.png" width="300">
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Add Service Form
+<img src="screenshots/add_service.png" width="300">
+
+
