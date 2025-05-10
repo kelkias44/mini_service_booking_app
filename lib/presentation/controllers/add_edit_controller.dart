@@ -48,7 +48,7 @@ class AddServiceController extends GetxController {
           uploadPreset: "kila_upload_preset",
           fileBytes: file.readAsBytesSync(),
           resourceType: CloudinaryResourceType.image,
-          fileName: 'some-name',
+          fileName: '${DateTime.now().millisecondsSinceEpoch}',
           progressCallback: (count, total) {
             print('Uploading image from file with progress: $count/$total');
           });

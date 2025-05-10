@@ -60,6 +60,9 @@ class AddServicePage extends GetView<AddServiceController> {
                     child: const Text('Gallery'),
                   ),
                 ),
+                const SizedBox(
+                  width: 12,
+                ),
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () => controller.pickImage(ImageSource.camera),
