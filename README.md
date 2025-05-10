@@ -23,3 +23,13 @@ flutter pub get
 ```bash
 flutter run
 ```
+
+## App Preview 📱
+
+### Services List
+<img src="screenshots/add_service.png" width="300">
+
+### Add Service Form
+<img src="screenshots/add_service.png" width="300">
+
+
