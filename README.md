@@ -27,9 +27,18 @@ flutter run
 ## App Preview 📱
 
 ### Services List
-<img src="screenshots/add_service.png" width="300">
+<img src="screenshots/service_list.jpg" width="300">
+
+### Services Detail
+<img src="screenshots/service_detail.jpg" width="300">
 
 ### Add Service Form
-<img src="screenshots/add_service.png" width="300">
+| <img src="screenshots/add_service.jpg" width="300"> | <img src="screenshots/add_service_image_selected.jpg" width="300"> |
+
+### Update Service
+<img src="screenshots/update_service.jpg" width="300">
+
+### Filter Service
+<img src="screenshots/filter_service.jpg" width="300">
 
 
