@@ -24,11 +24,30 @@ class ServiceDetailPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Image.network(
-              service.imageUrl,
+            Container(
               height: 210,
               width: double.infinity,
-              fit: BoxFit.cover,
+              child: Image.network(
+                service.imageUrl,
+                fit: BoxFit.cover,
+                loadingBuilder: (BuildContext context, Widget child,
+                    ImageChunkEvent? loadingProgress) {
+                  if (loadingProgress == null) {
+                    return child;
+                  }
+                  return Center(
+                    child: CircularProgressIndicator(
+                      value: loadingProgress.expectedTotalBytes != null
+                          ? loadingProgress.cumulativeBytesLoaded /
+                              loadingProgress.expectedTotalBytes!
+                          : null,
+                    ),
+                  );
+                },
+                errorBuilder: (context, error, stackTrace) {
+                  return const Icon(Icons.error_outline, color: Colors.red);
+                },
+              ),
             ),
             Padding(
               padding:

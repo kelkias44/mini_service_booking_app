@@ -3,11 +3,40 @@
 A Flutter-based application for managing service bookings with full CRUD functionality, built following Clean Architecture principles and powered by GetX for state management.
 
 ## Features ✨
-- **Service Management**: Create, Read, Update, Delete services
-- **Image Upload**: Camera/Gallery image capture with Cloudinary integration
-- **Search & Filters**: Find services by category, price range, or rating
-- **Responsive UI**: Clean and intuitive user interface
-- **Form Validation**: Real-time input validation with error handling
+
+### Core Functionality
+- **Service List View**  
+  Browse services with beautiful cards showing key details and availability status
+- **Service Details**  
+  Comprehensive view with expandable sections and hero animations
+- **Add New Service**  
+  Form with image upload (camera/gallery) and real-time validation
+- **Edit Service**  
+  Pre-filled forms with existing data and seamless updates
+- **Delete Service**  
+  Secure deletion with confirmation dialog and undo capability
+
+### Bonus Features 🚀
+- **Smart Search & Filters**  
+  Combined search by name/category + filter by price range (₹100-₹5000) and rating (⭐1-⭐5)
+- **Lottie Animations**  
+  Custom loading sequences and empty state illustrations
+- **Swipe-to-Refresh**  
+  Pull down to refresh service list with haptic feedback
+- **Responsive Design**  
+  Perfect display on devices from 5" phones to 10" tablets
+
+## Tech Stack 💻
+
+| Category             | Technologies                                                              |
+|----------------------|---------------------------------------------------------------------------|
+| **Framework**        | Flutter                                                                   |
+| **State Management** | GetX                                                                      |
+| **API Client**       | Dio with Interceptors                                                     |
+| **Image Handling**   | Cloudinary + Image Picker                                                 |
+| **Local Storage**    | GetStorage for caching                                                    |
+| **Animations**       | Lottie                                                                    |
+| **DI**               | GetX Dependency Injection 
 
 ## Setup 🚀
 1. Clone repository
@@ -40,5 +69,7 @@ flutter run
 
 ### Filter Service
 <img src="screenshots/filter_service.jpg" width="300">
+
+
 
 

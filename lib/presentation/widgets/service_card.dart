@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:simple_service_management/domain/entities/service.dart';
@@ -7,7 +9,76 @@ import '../controllers/service_controller.dart';
 class ServiceCard extends StatelessWidget {
   final Service service;
 
-  const ServiceCard({super.key, required this.service});
+  final Uint8List transparentImage = Uint8List.fromList([
+    0x89,
+    0x50,
+    0x4E,
+    0x47,
+    0x0D,
+    0x0A,
+    0x1A,
+    0x0A,
+    0x00,
+    0x00,
+    0x00,
+    0x0D,
+    0x49,
+    0x48,
+    0x44,
+    0x52,
+    0x00,
+    0x00,
+    0x00,
+    0x01,
+    0x00,
+    0x00,
+    0x00,
+    0x01,
+    0x08,
+    0x06,
+    0x00,
+    0x00,
+    0x00,
+    0x1F,
+    0x15,
+    0xC4,
+    0x89,
+    0x00,
+    0x00,
+    0x00,
+    0x0A,
+    0x49,
+    0x44,
+    0x41,
+    0x54,
+    0x78,
+    0xDA,
+    0x63,
+    0x00,
+    0x01,
+    0x00,
+    0x00,
+    0x05,
+    0x00,
+    0x01,
+    0x0D,
+    0x0A,
+    0x2D,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x49,
+    0x45,
+    0x4E,
+    0x44,
+    0xAE,
+    0x42,
+    0x60,
+    0x82,
+  ]);
+
+  ServiceCard({super.key, required this.service});
 
   @override
   Widget build(BuildContext context) {
@@ -20,22 +91,47 @@ class ServiceCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height: 120,
-                width: double.infinity,
+              Stack(
                 alignment: Alignment.topRight,
-                decoration: BoxDecoration(
-                    image:
-                        DecorationImage(image: NetworkImage(service.imageUrl))),
-                child: Container(
+                children: [
+                  Container(
+                    height: 120,
+                    width: double.infinity,
+                    child: Image.network(
+                      service.imageUrl,
+                      fit: BoxFit.cover,
+                      loadingBuilder: (BuildContext context, Widget child,
+                          ImageChunkEvent? loadingProgress) {
+                        if (loadingProgress == null) {
+                          return child;
+                        }
+                        return Center(
+                          child: CircularProgressIndicator(
+                            value: loadingProgress.expectedTotalBytes != null
+                                ? loadingProgress.cumulativeBytesLoaded /
+                                    loadingProgress.expectedTotalBytes!
+                                : null,
+                          ),
+                        );
+                      },
+                      errorBuilder: (context, error, stackTrace) {
+                        return const Icon(Icons.error_outline,
+                            color: Colors.red);
+                      },
+                    ),
+                  ),
+                  Container(
                     padding: EdgeInsets.symmetric(horizontal: 18, vertical: 6),
                     decoration: BoxDecoration(
-                        color: service.availability ? Colors.green : Colors.red,
-                        borderRadius: BorderRadius.all(Radius.circular(15))),
+                      color: service.availability ? Colors.green : Colors.red,
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                    ),
                     child: Text(
                       service.availability ? "Available" : "Not Available",
                       style: TextStyle(fontSize: 11, color: Colors.white),
-                    )),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 8),
               Text(

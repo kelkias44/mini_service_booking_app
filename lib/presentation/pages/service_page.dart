@@ -27,10 +27,14 @@ class ServicesPage extends GetView<ServicesController> {
               if (controller.isLoading.value) return LoadingIndicator();
               if (controller.filteredServices.isEmpty)
                 return EmptyServiceWidget();
-              return ListView.builder(
-                itemCount: controller.filteredServices.length,
-                itemBuilder: (ctx, i) => ServiceCard(
-                  service: controller.filteredServices[i],
+
+              return RefreshIndicator(
+                onRefresh: () async => await controller.fetchServices(),
+                child: ListView.builder(
+                  itemCount: controller.filteredServices.length,
+                  itemBuilder: (ctx, i) => ServiceCard(
+                    service: controller.filteredServices[i],
+                  ),
                 ),
               );
             }),
