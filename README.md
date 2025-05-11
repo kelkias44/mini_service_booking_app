@@ -67,6 +67,7 @@ lib/
 │   ├── controllers/    # GetX controllers
 │   ├── pages/          # Screen widgets
 │   └── widgets/        # Reusable components
+```
 
 
 
