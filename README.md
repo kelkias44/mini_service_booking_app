@@ -88,7 +88,7 @@ flutter run
 
 ## App Preview 📱
 
-### Services List
+### Login
 <img src="screenshots/login.jpg" width="300">
 
 ### Services List
