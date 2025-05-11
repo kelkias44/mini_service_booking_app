@@ -23,8 +23,11 @@ A Flutter-based application for managing service bookings with full CRUD functio
   Custom loading sequences and empty state illustrations
 - **Swipe-to-Refresh**  
   Pull down to refresh service list with haptic feedback
-- **Responsive Design**  
-  Perfect display on devices from 5" phones to 10" tablets
+- **Login**
+  - Credential validation (username/password)
+  - Session persistence using SharedPreferences
+  - Secure password obscuring
+ 
 
 ## Tech Stack 💻
 
@@ -34,9 +37,38 @@ A Flutter-based application for managing service bookings with full CRUD functio
 | **State Management** | GetX                                                                      |
 | **API Client**       | Dio with Interceptors                                                     |
 | **Image Handling**   | Cloudinary + Image Picker                                                 |
-| **Local Storage**    | GetStorage for caching                                                    |
+| **Local Storage**    | SharedPreferences                                                         |
 | **Animations**       | Lottie                                                                    |
 | **DI**               | GetX Dependency Injection 
+
+## Architecture 🏗️
+
+The application follows Clean Architecture principles with clear separation of concerns across three primary layers:
+
+### Layer Structure
+
+```text
+lib/
+├── core/
+│   ├── constants/      # App-wide constants (strings, endpoints, etc.)
+│   ├── errors/         # Custom exceptions & failures
+│   ├── network/        # Dio client configuration
+│   └── utils/          # Extensions, helpers, utilities
+├── data/
+│   ├── datasources/    # API and local data sources
+│   ├── models/         # Data Transfer Objects (DTOs)
+│   └── repositories/   # Repository implementations
+├── domain/
+│   ├── entities/       # Business logic objects
+│   ├── repositories/   # Abstract repository contracts
+│   └── usecases/       # Business use cases
+└── presentation/
+│   ├── bindings/       # Dependency injection setup
+│   ├── controllers/    # GetX controllers
+│   ├── pages/          # Screen widgets
+│   └── widgets/        # Reusable components
+
+
 
 ## Setup 🚀
 1. Clone repository
@@ -54,6 +86,9 @@ flutter run
 ```
 
 ## App Preview 📱
+
+### Services List
+<img src="screenshots/login.jpg" width="300">
 
 ### Services List
 <img src="screenshots/service_list.jpg" width="300">

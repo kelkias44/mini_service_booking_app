@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-
 import '../../core/network/dio_client.dart';
 import '../../data/datasources/service_remote_data_source.dart';
 import '../../data/repositories/service_repository_impl.dart';

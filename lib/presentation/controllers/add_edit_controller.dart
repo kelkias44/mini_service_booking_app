@@ -18,7 +18,6 @@ class AddServiceController extends GetxController {
   final nameController = TextEditingController();
   final categoryController = TextEditingController();
   final priceController = TextEditingController();
-  // final imageUrlController = TextEditingController();
   final durationController = TextEditingController();
   final ratingController = TextEditingController();
   var availability = true.obs;
